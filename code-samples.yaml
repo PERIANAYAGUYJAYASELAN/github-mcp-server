@@ -1,0 +1,86 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for csharp target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/auth/token"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "getToken_json"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nCredentials req = new Credentials() {\n    Email = \"marc@scalar.com\",\n    Password = \"i-love-scalar\",\n};\n\nvar res = await sdk.Authentication.GetTokenJsonAsync(req);\n\n// handle response"
+        - "lang": "csharp"
+          "label": "getToken_raw"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing System;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nbyte[] req = System.Text.Encoding.UTF8.GetBytes(\"{\\\"email\\\":\\\"marc@scalar.com\\\",\\\"password\\\":\\\"i-love-scalar\\\"}\");\n\nvar res = await sdk.Authentication.GetTokenRawAsync(req);\n\n// handle response"
+  - target: $["paths"]["/celestial-bodies"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "createCelestialBody"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nCelestialBodyInput req = CelestialBodyInput.CreateSatellite(\n    new SatelliteInput() {\n        Name = \"Phobos\",\n        Type = SatelliteType.Satellite,\n    }\n);\n\nvar res = await sdk.CelestialBodies.CreateCelestialBodyAsync(req);\n\n// handle response"
+  - target: $["paths"]["/me"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "getMe"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Authentication.GetMeAsync();\n\n// handle response"
+  - target: $["paths"]["/planets"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "getAllData"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.GetAllDataAsync(\n    limit: 10,\n    offset: 0\n);\n\n// handle response"
+  - target: $["paths"]["/planets"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "createPlanet_json"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components;\nusing System;\nusing System.Collections.Generic;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nPlanetInput req = new PlanetInput() {\n    Name = \"Mars\",\n    Description = \"The red planet\",\n    Type = Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components.Type.Terrestrial,\n    HabitabilityIndex = 0.68F,\n    PhysicalProperties = new PhysicalProperties() {\n        Mass = 0.107F,\n        Radius = 0.532F,\n        Gravity = 0.378F,\n        Temperature = new Temperature() {\n            Min = 130F,\n            Max = 308F,\n            Average = 210F,\n        },\n    },\n    Atmosphere = new List<Atmosphere>() {\n        new Atmosphere() {\n            Compound = \"CO2\",\n            Percentage = 95.3F,\n        },\n    },\n    DiscoveredAt = System.DateTime.Parse(\"1610-01-07T00:00:00Z\"),\n    Image = \"https://cdn.scalar.com/photos/mars.jpg\",\n    Satellites = new List<SatelliteInput>() {\n        new SatelliteInput() {\n            Name = \"Phobos\",\n            Description = \"Phobos is the larger and innermost of the two moons of Mars.\",\n            Diameter = 22.2F,\n            Type = SatelliteType.Moon,\n            Orbit = new Orbit() {\n                PlanetId = 1,\n                OrbitalPeriod = 0.319F,\n                Distance = 9376F,\n            },\n        },\n    },\n    Creator = new UserInput() {\n        Name = \"Marc\",\n    },\n    Tags = new List<string>() {\n        \"solar-system\",\n        \"rocky\",\n        \"explored\",\n    },\n    SuccessCallbackUrl = \"https://example.com/webhook\",\n    FailureCallbackUrl = \"https://example.com/webhook\",\n};\n\nvar res = await sdk.Planets.CreatePlanetJsonAsync(req);\n\n// handle response"
+        - "lang": "csharp"
+          "label": "createPlanet_raw"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing System;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nbyte[] req = System.Text.Encoding.UTF8.GetBytes(\"{\\\"habitabilityIndex\\\":0.68,\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"},\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"name\\\":\\\"Mars\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"physicalProperties\\\":{\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"min\\\":130,\\\"max\\\":308,\\\"average\\\":210},\\\"mass\\\":0.107,\\\"radius\\\":0.532},\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"satellites\\\":[{\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\",\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376}}],\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\"}\");\n\nvar res = await sdk.Planets.CreatePlanetRawAsync(req);\n\n// handle response"
+  - target: $["paths"]["/planets/{planetId}"]["delete"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "deletePlanet"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.DeletePlanetAsync(planetId: 1);\n\n// handle response"
+  - target: $["paths"]["/planets/{planetId}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "getPlanet"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.GetPlanetAsync(planetId: 1);\n\n// handle response"
+  - target: $["paths"]["/planets/{planetId}"]["put"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "updatePlanet_json"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components;\nusing System;\nusing System.Collections.Generic;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.UpdatePlanetJsonAsync(\n    planetId: 1,\n    planet: new PlanetInput() {\n        Name = \"Mars\",\n        Description = \"The red planet\",\n        Type = Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components.Type.Terrestrial,\n        HabitabilityIndex = 0.68F,\n        PhysicalProperties = new PhysicalProperties() {\n            Mass = 0.107F,\n            Radius = 0.532F,\n            Gravity = 0.378F,\n            Temperature = new Temperature() {\n                Min = 130F,\n                Max = 308F,\n                Average = 210F,\n            },\n        },\n        Atmosphere = new List<Atmosphere>() {\n            new Atmosphere() {\n                Compound = \"CO2\",\n                Percentage = 95.3F,\n            },\n        },\n        DiscoveredAt = System.DateTime.Parse(\"1610-01-07T00:00:00Z\"),\n        Image = \"https://cdn.scalar.com/photos/mars.jpg\",\n        Satellites = new List<SatelliteInput>() {\n            new SatelliteInput() {\n                Name = \"Phobos\",\n                Description = \"Phobos is the larger and innermost of the two moons of Mars.\",\n                Diameter = 22.2F,\n                Type = SatelliteType.Moon,\n                Orbit = new Orbit() {\n                    PlanetId = 1,\n                    OrbitalPeriod = 0.319F,\n                    Distance = 9376F,\n                },\n            },\n        },\n        Creator = new UserInput() {\n            Name = \"Marc\",\n        },\n        Tags = new List<string>() {\n            \"solar-system\",\n            \"rocky\",\n            \"explored\",\n        },\n        SuccessCallbackUrl = \"https://example.com/webhook\",\n        FailureCallbackUrl = \"https://example.com/webhook\",\n    }\n);\n\n// handle response"
+        - "lang": "csharp"
+          "label": "updatePlanet_raw"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing System;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.UpdatePlanetRawAsync(\n    planetId: 1,\n    planet: System.Text.Encoding.UTF8.GetBytes(\"{\\\"name\\\":\\\"Mars\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"habitabilityIndex\\\":0.68,\\\"physicalProperties\\\":{\\\"mass\\\":0.107,\\\"radius\\\":0.532,\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"min\\\":130,\\\"max\\\":308,\\\"average\\\":210}},\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"satellites\\\":[{\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\",\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376}}],\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"},\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\"}\")\n);\n\n// handle response"
+  - target: $["paths"]["/planets/{planetId}/image"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "uploadImage"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Requests;\nusing System.IO;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nvar res = await sdk.Planets.UploadImageAsync(\n    planetId: 1,\n    requestBody: new UploadImageRequestBody() {\n        Image = new Image() {\n            FileName = \"example.file\",\n            Content = File.ReadAllBytes(\"example.file\"),\n        },\n    }\n);\n\n// handle response"
+  - target: $["paths"]["/user/signup"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "createUser_json"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Requests;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nCreateUserJsonRequestBody req = new CreateUserJsonRequestBody() {\n    Name = \"Marc\",\n    Email = \"marc@scalar.com\",\n    Password = \"i-love-scalar\",\n};\n\nvar res = await sdk.Authentication.CreateUserJsonAsync(req);\n\n// handle response"
+        - "lang": "csharp"
+          "label": "createUser_raw"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing System;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nbyte[] req = System.Text.Encoding.UTF8.GetBytes(\"{\\\"name\\\":\\\"Marc\\\",\\\"email\\\":\\\"marc@scalar.com\\\",\\\"password\\\":\\\"i-love-scalar\\\"}\");\n\nvar res = await sdk.Authentication.CreateUserRawAsync(req);\n\n// handle response"
+  - target: $["paths"]["newPlanet"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "csharp"
+          "label": "newPlanet_json"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components;\nusing System;\nusing System.Collections.Generic;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nPlanetInput req = new PlanetInput() {\n    Name = \"Mars\",\n    Description = \"The red planet\",\n    Type = Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.Models.Components.Type.Terrestrial,\n    HabitabilityIndex = 0.68F,\n    PhysicalProperties = new PhysicalProperties() {\n        Mass = 0.107F,\n        Radius = 0.532F,\n        Gravity = 0.378F,\n        Temperature = new Temperature() {\n            Min = 130F,\n            Max = 308F,\n            Average = 210F,\n        },\n    },\n    Atmosphere = new List<Atmosphere>() {\n        new Atmosphere() {\n            Compound = \"CO2\",\n            Percentage = 95.3F,\n        },\n    },\n    DiscoveredAt = System.DateTime.Parse(\"1610-01-07T00:00:00Z\"),\n    Image = \"https://cdn.scalar.com/photos/mars.jpg\",\n    Satellites = new List<SatelliteInput>() {\n        new SatelliteInput() {\n            Name = \"Phobos\",\n            Description = \"Phobos is the larger and innermost of the two moons of Mars.\",\n            Diameter = 22.2F,\n            Type = SatelliteType.Moon,\n            Orbit = new Orbit() {\n                PlanetId = 1,\n                OrbitalPeriod = 0.319F,\n                Distance = 9376F,\n            },\n        },\n    },\n    Creator = new UserInput() {\n        Name = \"Marc\",\n    },\n    Tags = new List<string>() {\n        \"solar-system\",\n        \"rocky\",\n        \"explored\",\n    },\n    SuccessCallbackUrl = \"https://example.com/webhook\",\n    FailureCallbackUrl = \"https://example.com/webhook\",\n};\n\nvar res = await sdk.Planets.NewPlanetJsonAsync(req);\n\n// handle response"
+        - "lang": "csharp"
+          "label": "newPlanet_raw"
+          "source": "using Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp;\nusing System;\n\nvar sdk = new DemoApiScalarGalaxy();\n\nbyte[] req = System.Text.Encoding.UTF8.GetBytes(\"{\\\"name\\\":\\\"Mars\\\",\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"habitabilityIndex\\\":0.68,\\\"physicalProperties\\\":{\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"max\\\":308,\\\"average\\\":210,\\\"min\\\":130},\\\"mass\\\":0.107,\\\"radius\\\":0.532},\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"satellites\\\":[{\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376},\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\"}],\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"}}\");\n\nvar res = await sdk.Planets.NewPlanetRawAsync(req);\n\n// handle response"

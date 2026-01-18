@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>true</IsPackable>
+    <PackageId>Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp</PackageId>
+    <Version>1.0.0</Version>
+    <TargetFramework>net8.0</TargetFramework>
+    <Authors>Perianayaguyjayaselan</Authors>
+    <Copyright>Copyright (c) Perianayaguyjayaselan 2026</Copyright>
+    <PackageProjectUrl>https://github.com/scalar/scalar</PackageProjectUrl>
+    <Description>Demo API (Scalar Galaxy): The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It&apos;s a fictional universe with fictional planets and fictional data. Get all the data for <a href="#tag/planets/get/planets">all planets</a>.<br/>
+<br/>
+## Resources<br/>
+<br/>
+* https://github.com/scalar/scalar<br/>
+* https://github.com/OAI/OpenAPI-Specification<br/>
+* https://scalar.com<br/>
+<br/>
+## Markdown Support<br/>
+<br/>
+All descriptions *can* contain ~~tons of text~~ **Markdown**. <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">If GitHub supports the syntax</a>, chances are we&apos;re supporting it, too. You can even create <a href="#tag/authentication/post/user/signup">internal links to reference endpoints</a>.<br/>
+<br/>
+&lt;details&gt;<br/>
+  &lt;summary&gt;Examples&lt;/summary&gt;<br/>
+<br/>
+  **Blockquotes**<br/>
+<br/>
+  &gt; I love OpenAPI. &lt;3<br/>
+<br/>
+  **Tables**<br/>
+<br/>
+  | Feature          | Availability |<br/>
+  | ---------------- | ------------ |<br/>
+  | Markdown Support | ✓            |<br/>
+<br/>
+  **Accordion**<br/>
+<br/>
+  ```html<br/>
+  &lt;details&gt;<br/>
+    &lt;summary&gt;Using Details Tags&lt;/summary&gt;<br/>
+    &lt;p&gt;HTML Example&lt;/p&gt;<br/>
+  &lt;/details&gt;<br/>
+  ```<br/>
+<br/>
+  **Images**<br/>
+<br/>
+  Yes, there&apos;s support for images, too!<br/>
+<br/>
+  !<a href="https://images.placeholders.dev/?width=1280&amp;height=720">Empty placeholder image showing the width/height</a><br/>
+<br/>
+  **Alerts**<br/>
+<br/>
+  &gt; [!tip]<br/>
+  &gt; You can now use markdown alerts in your descriptions.<br/>
+<br/>
+&lt;/details&gt;<br/>
+</Description>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\NUGET.md" Pack="true" PackagePath="README.md"/>
+    <None Include="..\..\..\docs\**\*" Pack="true" PackagePath="\docs"  CopyToOutputDirectory="PreserveNewest"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="newtonsoft.json" Version="13.0.3" />
+    <PackageReference Include="nodatime" Version="3.1.9" />
+  </ItemGroup>
+
+</Project>

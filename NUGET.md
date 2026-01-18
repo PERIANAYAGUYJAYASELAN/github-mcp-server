@@ -1,98 +1,5 @@
-# demo-api-scalar-galaxy-csharp
+# Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp
 
-Developer-friendly, idiomatic C# SDK for the *demo-api-scalar-galaxy-csharp* API.
-
-<div align="left">
-    <a href="https://www.scalar.com/?utm_source=demo-api-scalar-galaxy-csharp&utm_campaign=csharp"><img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20scalar+speakeasy-212015?style=for-the-badge&logo=scalar&labelColor=252525" /></a>
-    <a href="https://opensource.org/licenses/MIT">
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
-    </a>
-</div>
-
-<br />
-
-## Summary
-
-Demo API (Scalar Galaxy): The Scalar Galaxy is an example OpenAPI document to test OpenAPI tools and libraries. It's a fictional universe with fictional planets and fictional data. Get all the data for [all planets](#tag/planets/get/planets).
-
-## Resources
-
-* https://github.com/scalar/scalar
-* https://github.com/OAI/OpenAPI-Specification
-* https://scalar.com
-
-## Markdown Support
-
-All descriptions *can* contain ~~tons of text~~ **Markdown**. [If GitHub supports the syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax), chances are we're supporting it, too. You can even create [internal links to reference endpoints](#tag/authentication/post/user/signup).
-
-<details>
-  <summary>Examples</summary>
-
-  **Blockquotes**
-
-  > I love OpenAPI. <3
-
-  **Tables**
-
-  | Feature          | Availability |
-  | ---------------- | ------------ |
-  | Markdown Support | ✓            |
-
-  **Accordion**
-
-  ```html
-  <details>
-    <summary>Using Details Tags</summary>
-    <p>HTML Example</p>
-  </details>
-  ```
-
-  **Images**
-
-  Yes, there's support for images, too!
-
-  ![Empty placeholder image showing the width/height](https://images.placeholders.dev/?width=1280&height=720)
-
-  **Alerts**
-
-  > [!tip]
-  > You can now use markdown alerts in your descriptions.
-
-</details>
-
-
-For more information about the API: [Documentation](https://github.com/scalar/scalar)
-<!-- End Summary [summary] -->
-
-<!-- Start Table of Contents [toc] -->
-## Table of Contents
-<!-- $toc-max-depth=2 -->
-* [Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp](#perianayaguyjayaselandemoapiscalargalaxycsharp)
-  * [Resources](#resources)
-  * [Markdown Support](#markdown-support)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
-
-<!-- End Table of Contents [toc] -->
-
-<!-- Start SDK Installation [installation] -->
-## SDK Installation
-
-### NuGet
-
-To add the [NuGet](https://www.nuget.org/) package to a .NET project:
-```bash
-dotnet add package Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp
-```
-
-### Locally
-
-To add a reference to a local instance of the SDK in a .NET project:
-```bash
-dotnet add reference src/Perianayaguyjayaselan/DemoApiScalarGalaxyCsharp/Perianayaguyjayaselan.DemoApiScalarGalaxyCsharp.csproj
-```
-<!-- End SDK Installation [installation] -->
 
 <!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
@@ -147,39 +54,6 @@ var res = await sdk.Planets.GetAllDataAsync(
 // handle response
 ```
 <!-- End Authentication [security] -->
-
-<!-- Start Available Resources and Operations [operations] -->
-## Available Resources and Operations
-
-<details open>
-<summary>Available methods</summary>
-
-### [Authentication](docs/sdks/authentication/README.md)
-
-* [CreateUserJson](docs/sdks/authentication/README.md#createuserjson) - Create a user
-* [CreateUserRaw](docs/sdks/authentication/README.md#createuserraw) - Create a user
-* [GetTokenJson](docs/sdks/authentication/README.md#gettokenjson) - Get a token
-* [GetTokenRaw](docs/sdks/authentication/README.md#gettokenraw) - Get a token
-* [GetMe](docs/sdks/authentication/README.md#getme) - Get authenticated user
-
-### [CelestialBodies](docs/sdks/celestialbodies/README.md)
-
-* [CreateCelestialBody](docs/sdks/celestialbodies/README.md#createcelestialbody) - Create a celestial body
-
-
-### [Planets](docs/sdks/planets/README.md)
-
-* [GetAllData](docs/sdks/planets/README.md#getalldata) - Get all planets
-* [CreatePlanetJson](docs/sdks/planets/README.md#createplanetjson) - Create a planet
-* [CreatePlanetRaw](docs/sdks/planets/README.md#createplanetraw) - Create a planet
-* [GetPlanet](docs/sdks/planets/README.md#getplanet) - Get a planet
-* [UpdatePlanetJson](docs/sdks/planets/README.md#updateplanetjson) - Update a planet
-* [UpdatePlanetRaw](docs/sdks/planets/README.md#updateplanetraw) - Update a planet
-* [DeletePlanet](docs/sdks/planets/README.md#deleteplanet) - Delete a planet
-* [UploadImage](docs/sdks/planets/README.md#uploadimage) - Upload an image to a planet
-
-</details>
-<!-- End Available Resources and Operations [operations] -->
 
 <!-- Start Error Handling [errors] -->
 ## Error Handling
@@ -283,9 +157,4 @@ var res = await sdk.Planets.GetAllDataAsync(
 ```
 <!-- End Server Selection [server] -->
 
-## Contributions
-
-While we value open-source contributions to this SDK, this library is generated programmatically. Any manual changes added to internal files will be overwritten on the next generation. 
-We look forward to hearing your feedback. Feel free to open a PR or an issue with a proof of concept and we'll do our best to include it in a future release.
-
-### SDK Created by [Scalar](https://www.scalar.com/?utm_source=demo-api-scalar-galaxy-csharp&utm_campaign=csharp)
+<!-- Placeholder for Future Speakeasy SDK Sections -->

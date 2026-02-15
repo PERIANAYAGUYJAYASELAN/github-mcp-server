@@ -1,0 +1,86 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for python target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/auth/token"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "getToken_json"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.authentication.get_token_json(request={\n        \"email\": \"marc@scalar.com\",\n        \"password\": \"i-love-scalar\",\n    })\n\n    # Handle response\n    print(res)"
+        - "lang": "python"
+          "label": "getToken_raw"
+          "source": "import io\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.authentication.get_token_raw(request=io.BytesIO(\"{\\\"email\\\":\\\"marc@scalar.com\\\",\\\"password\\\":\\\"i-love-scalar\\\"}\".encode()))\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/celestial-bodies"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "createCelestialBody"
+          "source": "import perianayaguyjayaselan_demo_api_scalar_galaxy_python\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.celestial_bodies.create_celestial_body(request={\n        \"name\": \"Phobos\",\n        \"type\": perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteType.SATELLITE,\n    })\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/me"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "getMe"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.authentication.get_me()\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/planets"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "getAllData"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.get_all_data(limit=10, offset=0)\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/planets"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "createPlanet_json"
+          "source": "import perianayaguyjayaselan_demo_api_scalar_galaxy_python\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python.utils import parse_datetime\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.create_planet_json(request=perianayaguyjayaselan_demo_api_scalar_galaxy_python.PlanetInput(\n        name=\"Mars\",\n        description=\"The red planet\",\n        type=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Type.TERRESTRIAL,\n        habitability_index=0.68,\n        physical_properties=perianayaguyjayaselan_demo_api_scalar_galaxy_python.PhysicalProperties(\n            mass=0.107,\n            radius=0.532,\n            gravity=0.378,\n            temperature=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Temperature(\n                min=130,\n                max=308,\n                average=210,\n            ),\n        ),\n        atmosphere=[\n            perianayaguyjayaselan_demo_api_scalar_galaxy_python.Atmosphere(\n                compound=\"CO2\",\n                percentage=95.3,\n            ),\n        ],\n        discovered_at=parse_datetime(\"1610-01-07T00:00:00Z\"),\n        image=\"https://cdn.scalar.com/photos/mars.jpg\",\n        satellites=[\n            perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteInput(\n                name=\"Phobos\",\n                description=\"Phobos is the larger and innermost of the two moons of Mars.\",\n                diameter=22.2,\n                type=perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteType.MOON,\n                orbit=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Orbit(\n                    planet_id=1,\n                    orbital_period=0.319,\n                    distance=9376,\n                ),\n            ),\n        ],\n        creator=perianayaguyjayaselan_demo_api_scalar_galaxy_python.UserInput(\n            name=\"Marc\",\n        ),\n        tags=[\n            \"solar-system\",\n            \"rocky\",\n            \"explored\",\n        ],\n        success_callback_url=\"https://example.com/webhook\",\n        failure_callback_url=\"https://example.com/webhook\",\n    ))\n\n    # Handle response\n    print(res)"
+        - "lang": "python"
+          "label": "createPlanet_raw"
+          "source": "import io\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.create_planet_raw(request=io.BytesIO(\"{\\\"name\\\":\\\"Mars\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"habitabilityIndex\\\":0.68,\\\"physicalProperties\\\":{\\\"mass\\\":0.107,\\\"radius\\\":0.532,\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"min\\\":130,\\\"max\\\":308,\\\"average\\\":210}},\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"satellites\\\":[{\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\",\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376}}],\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"},\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\"}\".encode()))\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/planets/{planetId}"]["delete"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "deletePlanet"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    demo_api_scalar_galaxy.planets.delete_planet(planet_id=1)\n\n    # Use the SDK ..."
+  - target: $["paths"]["/planets/{planetId}"]["get"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "getPlanet"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.get_planet(planet_id=1)\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/planets/{planetId}"]["put"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "updatePlanet_json"
+          "source": "import perianayaguyjayaselan_demo_api_scalar_galaxy_python\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python.utils import parse_datetime\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.update_planet_json(planet_id=1, name=\"Mars\", type_=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Type.TERRESTRIAL, description=\"The red planet\", habitability_index=0.68, physical_properties=perianayaguyjayaselan_demo_api_scalar_galaxy_python.PhysicalProperties(\n        mass=0.107,\n        radius=0.532,\n        gravity=0.378,\n        temperature=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Temperature(\n            min=130,\n            max=308,\n            average=210,\n        ),\n    ), atmosphere=[\n        perianayaguyjayaselan_demo_api_scalar_galaxy_python.Atmosphere(\n            compound=\"CO2\",\n            percentage=95.3,\n        ),\n    ], discovered_at=parse_datetime(\"1610-01-07T00:00:00Z\"), image=\"https://cdn.scalar.com/photos/mars.jpg\", satellites=[\n        {\n            \"name\": \"Phobos\",\n            \"description\": \"Phobos is the larger and innermost of the two moons of Mars.\",\n            \"diameter\": 22.2,\n            \"type\": perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteType.MOON,\n            \"orbit\": {\n                \"planet_id\": 1,\n                \"orbital_period\": 0.319,\n                \"distance\": 9376,\n            },\n        },\n    ], creator={\n        \"name\": \"Marc\",\n    }, tags=[\n        \"solar-system\",\n        \"rocky\",\n        \"explored\",\n    ], success_callback_url=\"https://example.com/webhook\", failure_callback_url=\"https://example.com/webhook\")\n\n    # Handle response\n    print(res)"
+        - "lang": "python"
+          "label": "updatePlanet_raw"
+          "source": "import io\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.update_planet_raw(planet_id=1, planet=io.BytesIO(\"{\\\"name\\\":\\\"Mars\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"habitabilityIndex\\\":0.68,\\\"physicalProperties\\\":{\\\"mass\\\":0.107,\\\"radius\\\":0.532,\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"min\\\":130,\\\"max\\\":308,\\\"average\\\":210}},\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"satellites\\\":[{\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\",\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376}}],\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"},\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\"}\".encode()))\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/planets/{planetId}/image"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "uploadImage"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.planets.upload_image(planet_id=1, image={\n        \"file_name\": \"example.file\",\n        \"content\": open(\"example.file\", \"rb\"),\n    })\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["/user/signup"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "createUser_json"
+          "source": "from perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.authentication.create_user_json(request={\n        \"name\": \"Marc\",\n        \"email\": \"marc@scalar.com\",\n        \"password\": \"i-love-scalar\",\n    })\n\n    # Handle response\n    print(res)"
+        - "lang": "python"
+          "label": "createUser_raw"
+          "source": "import io\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    res = demo_api_scalar_galaxy.authentication.create_user_raw(request=io.BytesIO(\"{\\\"name\\\":\\\"Marc\\\",\\\"email\\\":\\\"marc@scalar.com\\\",\\\"password\\\":\\\"i-love-scalar\\\"}\".encode()))\n\n    # Handle response\n    print(res)"
+  - target: $["paths"]["newPlanet"]["post"]
+    update:
+      "x-codeSamples":
+        - "lang": "python"
+          "label": "newPlanet_json"
+          "source": "import perianayaguyjayaselan_demo_api_scalar_galaxy_python\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python.utils import parse_datetime\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    demo_api_scalar_galaxy.planets.new_planet_json(request=perianayaguyjayaselan_demo_api_scalar_galaxy_python.PlanetInput(\n        name=\"Mars\",\n        description=\"The red planet\",\n        type=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Type.TERRESTRIAL,\n        habitability_index=0.68,\n        physical_properties=perianayaguyjayaselan_demo_api_scalar_galaxy_python.PhysicalProperties(\n            mass=0.107,\n            radius=0.532,\n            gravity=0.378,\n            temperature=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Temperature(\n                min=130,\n                max=308,\n                average=210,\n            ),\n        ),\n        atmosphere=[\n            perianayaguyjayaselan_demo_api_scalar_galaxy_python.Atmosphere(\n                compound=\"CO2\",\n                percentage=95.3,\n            ),\n        ],\n        discovered_at=parse_datetime(\"1610-01-07T00:00:00Z\"),\n        image=\"https://cdn.scalar.com/photos/mars.jpg\",\n        satellites=[\n            perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteInput(\n                name=\"Phobos\",\n                description=\"Phobos is the larger and innermost of the two moons of Mars.\",\n                diameter=22.2,\n                type=perianayaguyjayaselan_demo_api_scalar_galaxy_python.SatelliteType.MOON,\n                orbit=perianayaguyjayaselan_demo_api_scalar_galaxy_python.Orbit(\n                    planet_id=1,\n                    orbital_period=0.319,\n                    distance=9376,\n                ),\n            ),\n        ],\n        creator=perianayaguyjayaselan_demo_api_scalar_galaxy_python.UserInput(\n            name=\"Marc\",\n        ),\n        tags=[\n            \"solar-system\",\n            \"rocky\",\n            \"explored\",\n        ],\n        success_callback_url=\"https://example.com/webhook\",\n        failure_callback_url=\"https://example.com/webhook\",\n    ))\n\n    # Use the SDK ..."
+        - "lang": "python"
+          "label": "newPlanet_raw"
+          "source": "import io\nfrom perianayaguyjayaselan_demo_api_scalar_galaxy_python import DemoAPIScalarGalaxy\n\n\nwith DemoAPIScalarGalaxy() as demo_api_scalar_galaxy:\n\n    demo_api_scalar_galaxy.planets.new_planet_raw(request=io.BytesIO(\"{\\\"name\\\":\\\"Mars\\\",\\\"description\\\":\\\"The red planet\\\",\\\"type\\\":\\\"terrestrial\\\",\\\"habitabilityIndex\\\":0.68,\\\"physicalProperties\\\":{\\\"mass\\\":0.107,\\\"radius\\\":0.532,\\\"gravity\\\":0.378,\\\"temperature\\\":{\\\"min\\\":130,\\\"max\\\":308,\\\"average\\\":210}},\\\"atmosphere\\\":[{\\\"compound\\\":\\\"CO2\\\",\\\"percentage\\\":95.3}],\\\"discoveredAt\\\":\\\"1610-01-07T00:00:00Z\\\",\\\"image\\\":\\\"https://cdn.scalar.com/photos/mars.jpg\\\",\\\"satellites\\\":[{\\\"name\\\":\\\"Phobos\\\",\\\"description\\\":\\\"Phobos is the larger and innermost of the two moons of Mars.\\\",\\\"diameter\\\":22.2,\\\"type\\\":\\\"moon\\\",\\\"orbit\\\":{\\\"planetId\\\":1,\\\"orbitalPeriod\\\":0.319,\\\"distance\\\":9376}}],\\\"creator\\\":{\\\"name\\\":\\\"Marc\\\"},\\\"tags\\\":[\\\"solar-system\\\",\\\"rocky\\\",\\\"explored\\\"],\\\"successCallbackUrl\\\":\\\"https://example.com/webhook\\\",\\\"failureCallbackUrl\\\":\\\"https://example.com/webhook\\\"}\".encode()))\n\n    # Use the SDK ..."

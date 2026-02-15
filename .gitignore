@@ -1,20 +1,11 @@
-.idea
-cmd/github-mcp-server/github-mcp-server
-
-# VSCode
-.vscode/*
-!.vscode/launch.json
-
-# Added by goreleaser init:
-dist/
-__debug_bin*
-
-# Go
-vendor
-bin/
-
-# macOS
+.venv/
+venv/
+src/*.egg-info/
+**/__pycache__/
+.pytest_cache/
+.python-version
 .DS_Store
-
-# binary
-github-mcp-server
+pyrightconfig.json
+**/.speakeasy/temp/
+**/.speakeasy/logs/
+.speakeasy/reports

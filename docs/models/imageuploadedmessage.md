@@ -1,0 +1,14 @@
+# ImageUploadedMessage
+
+Message about an image upload
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `message`                                                              | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | N/A                                                                    | Image uploaded successfully                                            |
+| `image_url`                                                            | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | The URL where the uploaded image can be accessed                       | https://cdn.scalar.com/images/8f47c132-9d1f-4f83-b5a4-91db5ee757ab.jpg |
+| `uploaded_at`                                                          | [date](https://docs.python.org/3/library/datetime.html#date-objects)   | :heavy_minus_sign:                                                     | Timestamp when the image was uploaded                                  | 2024-01-15T14:30:00Z                                                   |
+| `file_size`                                                            | *Optional[int]*                                                        | :heavy_minus_sign:                                                     | Size of the uploaded image in bytes                                    | 1048576                                                                |
+| `mime_type`                                                            | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | The content type of the uploaded image                                 | image/jpeg                                                             |

@@ -64,7 +64,7 @@ using System;
 
 var sdk = new DemoApiScalarGalaxy();
 
-byte[] req = System.Text.Encoding.UTF8.GetBytes("{\"name\":\"Marc\",\"email\":\"marc@scalar.com\",\"password\":\"i-love-scalar\"}");
+byte[] req = System.Text.Encoding.UTF8.GetBytes("{\"password\":\"i-love-scalar\",\"name\":\"Marc\",\"email\":\"marc@scalar.com\"}");
 
 var res = await sdk.Authentication.CreateUserRawAsync(req);
 
